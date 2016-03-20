@@ -1,0 +1,9 @@
+title: LoomState.fm
+email: info@loomstate.fm
+description: LoomState an Independent Podcast Network
+url: https://loomstate.fm
+twitter_username: loomstate
+github_username:  loomstate
+
+# Build settings
+markdown: kramdown
