@@ -1,0 +1,32 @@
+// ----------------------------------------------------------------------------
+//
+// Footer
+
+.footer {
+  background: scheme(header, background);
+  border-top: 1px solid scheme(header, border);
+  text-align: center;
+
+  &__content {
+    max-width: layout(content-width);
+    margin: 0 auto;
+    padding: 0 layout(gutter);
+  }
+
+  &__links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: inline;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    color: scheme(header, color);
+  }
+
+}

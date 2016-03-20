@@ -1,0 +1,29 @@
+// ----------------------------------------------------------------------------
+//
+// Header
+
+.header {
+  background: scheme(header, background);
+  border-bottom: 1px solid scheme(header, border);
+
+  &__content {
+    max-width: layout(content-width);
+    margin: 0 auto;
+    padding: 0 layout(gutter);
+  }
+
+  &__title {
+    color: scheme(header, color);
+  }
+
+  &__nav {
+    float: right;
+  }
+
+  &__link {
+    color: scheme(header, color);
+    &:not(:last-child) {
+      margin-right: layout(gutter);
+    }
+  }
+}

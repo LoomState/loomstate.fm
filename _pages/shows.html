@@ -1,0 +1,40 @@
+---
+layout: page
+title: Shows
+permalink: /shows/
+---
+<div class='page-content'>
+
+  <ul cass='shows'>
+
+    {% for show in site.shows %}
+    <li class='show'>
+      <a href='{{ show.url }}'>
+        <img alt='{{ show.name }}' class='show__cover' src='{{ show.cover_image }}'>
+      </a>
+      <h3><a href='{{ show.url }}'>{{ show.name }}</a></h3>
+
+      {% for host in show.hosts %}
+        {% if forloop.first %}
+          <h4>Hosted by
+        {% endif %}
+
+        {% assign people = site.people | where:"slug",host %}
+        {% for person in people where:"slug",host %}
+          <a href='{{ person.url }}'>{{ person.name }}</a>
+        {% endfor %}
+
+        {% if forloop.last %}
+          .</h4>
+        {% endif %}
+      {% endfor %}
+
+      <p>
+        {{ show.description }}
+      </p>
+    </li>
+    {% endfor %}
+
+  </ul>
+
+</div>

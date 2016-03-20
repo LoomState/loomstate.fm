@@ -1,0 +1,72 @@
+$color: (
+  primary: #909,
+  black:   #000,
+  white:   #FFF,
+
+  text:       #111,
+  background: #fdfdfd,
+  brand:      #2a7ae2,
+
+  grey:       #888,
+  grey-light: lighten(#888, 40%),
+  grey-dark:  darken(#888, 25%),
+);
+
+@function color($name) {
+    @return map-get($color, $name);
+}
+
+$scheme: (
+  base: (
+    font: (
+      family: '"Helvetica Neue", Helvetica, Arial, sans-serif',
+      size: 16px,
+      weight: 400,
+    ),
+    line-height: 1.5,
+  ),
+
+  header: (
+    background: #eee,
+    border: #ccc,
+    color: color(text),
+  ),
+
+  footer: (
+    background: #eee,
+    border: #ccc,
+  ),
+
+);
+
+@function scheme($element, $sub: 'X', $sub-sub: 'X') {
+  @if $sub-sub != 'X' {
+    @return map-get(map-get(map-get($scheme, $element), $sub), $sub-sub);
+  }
+  @if $sub != 'X' {
+    @return map-get(map-get($scheme, $element), $sub);
+  }
+  @return map-get($scheme, $element);
+}
+
+$layout: (
+  gutter: 20px,
+  content-width: 800px,
+);
+
+@function layout($name) {
+  @return map-get($layout, $name);
+}
+
+$spacing-unit:     30px;
+
+$text-color:       #111;
+$background-color: #fdfdfd;
+$brand-color:      #2a7ae2;
+
+$grey-color:       #828282;
+$grey-color-light: lighten($grey-color, 40%);
+$grey-color-dark:  darken($grey-color, 25%);
+
+// Width of the content area
+$content-width:    800px;

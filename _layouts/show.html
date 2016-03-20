@@ -1,0 +1,47 @@
+---
+layout: default
+---
+
+<div class='page-content'>
+
+  <div>
+    <img alt='{{ page.name }}' class='show__cover' src='{{ page.cover_image }}'>
+    <h2>{{ page.name }}</h2>
+    <p>{{ page.description }}</p>
+
+    <p>
+      {% for host in page.hosts %}
+        {% if forloop.first %}
+          Hosted by
+        {% endif %}
+
+        {% assign people = site.people | where:"slug",host %}
+        {% for person in people where:"slug",host %}
+          <a href='{{ person.url }}'>{{ person.name }}</a>
+        {% endfor %}
+
+        {% if forloop.last %}
+          .
+        {% endif %}
+      {% endfor %}
+    </p>
+
+    <p class='show__links'>
+      <a href='#' title='Subscribe via RSS'>RSS</a>
+      <a href='#' title='{{ page.name }} on iTunes'>iTunes</a>
+      <a href='mailto:{{ page.email }}'>Contact</a>
+    </p>
+  </div>
+
+  <h2>Episodes</h2>
+  <ul>
+    {% assign episodes = site.episodes | where:"show",page.slug %}
+    {% for episode in episodes reversed %}
+      <li>
+        <h3><a href="{{ episode.url }}">#{{ episode.number }}: {{ episode.title }}</a></h3>
+        <h4>{{ episode.date }} - {{ episode.duration }}</h4>
+        <p>{{ episode.short_description }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

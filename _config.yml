@@ -5,5 +5,33 @@ url: https://loomstate.fm
 twitter_username: loomstate
 github_username:  loomstate
 
+collections:
+  episodes:
+    output: true
+    permalink: /:path/
+  shows:
+    output: true
+    permalink: /:path/
+  people:
+    output: true
+    permalink: /people/:path/
+
+defaults:
+  - scope:
+      type: episodes
+    values:
+      layout: episode
+  - scope:
+      type: shows
+    values:
+      layout: show
+  - scope:
+      type: people
+    values:
+      layout: person
+
 # Build settings
 markdown: kramdown
+
+include:
+  - _pages

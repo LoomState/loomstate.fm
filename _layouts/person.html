@@ -1,0 +1,37 @@
+---
+layout: default
+---
+{% assign person = page %}
+
+<div class='page-content'>
+
+  <div class='breadcrumbs'>
+    <a href='/people/'>People</a>
+    <a href='{{ person.url }}'>{{ person.name }}</a>
+  </div>
+
+  <div class='person'>
+
+    <img alt='{{ person.name }}' class='person__image' src='{{ person.image }}'>
+
+    <h2>{{ person.name }}</h2>
+
+    {{ content }}
+
+    <h3>{{ person.name }}'s shows:</h3>
+    <ul>
+      {% for show in site.shows %}
+        <li>{{ show.title }}</li>
+      {% endfor %}
+    </ul>
+
+    <h3>{{ person.name }}'s guest appearances:</h3>
+    <ul>
+      {% for show in site.shows %}
+      <li>{{ show.title }}</li>
+      {% endfor %}
+    </ul>
+
+  </div>
+
+</div>

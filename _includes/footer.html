@@ -1,38 +1,22 @@
-<footer class="site-footer">
+<footer class='footer'>
+  <div class='footer__content'>
 
-  <div class="wrapper">
+    <p>LoomState.fm works with independent producers to publish podcasts about design, development, fashion and life.</p>
 
-    <h2 class="footer-heading">{{ site.title }}</h2>
+    <p>Each episode is hosted by people like you and I.</p>
 
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li>{{ site.title }}</li>
-          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-        </ul>
-      </div>
+    <ul class='footer__links'>
+      {% for page in site.pages %}
+        {% if page.title %}
+        <li><a class='footer__link' href='{{ page.url | prepend: site.baseurl }}'>{{ page.title }}</a></li>
+        {% endif %}
+      {% endfor %}
+      <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+    </ul>
 
-      <div class="footer-col footer-col-2">
-        <ul class="social-media-list">
-          {% if site.github_username %}
-          <li>
-            {% include icon-github.html username=site.github_username %}
-          </li>
-          {% endif %}
-
-          {% if site.twitter_username %}
-          <li>
-            {% include icon-twitter.html username=site.twitter_username %}
-          </li>
-          {% endif %}
-        </ul>
-      </div>
-
-      <div class="footer-col footer-col-3">
-        <p>{{ site.description }}</p>
-      </div>
-    </div>
+    <p class='footer__copyright'>
+      Copyright © 2016 by Loom State Productions in Newcastle Australia.
+    </p>
 
   </div>
-
 </footer>

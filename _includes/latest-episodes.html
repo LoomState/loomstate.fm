@@ -1,0 +1,19 @@
+<section class='latest-episodes'>
+
+  <h1 class='section-heading'>
+    Latest episodes
+    <a href='{{ '/episodes/' | prepend: site.baseurl }}'>All episodes →</a>
+  </h1>
+
+  <ul class='latest-episode-list'>
+    {% for episode in site.episodes limit:3 %}
+      <li class='latest-episode'>
+        <a class='latest-episode__link' href='{{ episode.url | prepend: site.baseurl }}'>
+          <img class='latest-episode__image' src='{{ episode.show.cover_image }}'>
+          <h2 class='latest-episode__title'>{{ episode.show.title }} {{ episode.number }}</h2>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+
+</section>
