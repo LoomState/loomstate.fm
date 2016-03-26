@@ -1,3 +1,7 @@
 url: ''
 show_drafts: true
 future: true
+
+include:
+  - _pages
+  - _debug
