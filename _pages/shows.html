@@ -5,33 +5,36 @@ permalink: /shows/
 ---
 <div class='page-content'>
 
-  <ul cass='shows'>
+  <ul class='shows'>
 
     {% for show in site.shows %}
     <li class='show'>
-      <a href='{{ show.url }}'>
-        <img alt='{{ show.name }}' class='show__cover' src='{{ show.cover_image }}'>
+      <a class='show__cover-link' href='{{ show.url }}'>
+        <div class='show__cover' style='background-image: url({{ show | cover_image }});'>
+        </div>
       </a>
-      <h3><a href='{{ show.url }}'>{{ show.name }}</a></h3>
+      <div class='show__description'>
+        <h3 class='show__title'><a href='{{ show.url }}'>{{ show.title }}</a></h3>
 
-      {% for host in show.hosts %}
-        {% if forloop.first %}
-          <h4>Hosted by
+        {% assign hosts = show.hosts | select_people %}
+        {% if hosts.size %}
+          <h4 class='show__hosts'>Hosted by
+          {% for host in hosts %}
+            <a href='{{ host.url }}'>{{ host.name }}</a>{% if forloop.last %}.{% elsif hosts.size > 2 %},{% endif %}
+
+            {% if hosts.size == 2 and forloop.first %}
+              &amp;
+            {% elsif hosts.size > 2 and forloop.rindex == 2 %}
+              and
+            {% endif %}
+
+          {% endfor %}
+          </h4>
         {% endif %}
-
-        {% assign people = site.people | where:"slug",host %}
-        {% for person in people where:"slug",host %}
-          <a href='{{ person.url }}'>{{ person.name }}</a>
-        {% endfor %}
-
-        {% if forloop.last %}
-          .</h4>
-        {% endif %}
-      {% endfor %}
-
-      <p>
-        {{ show.description }}
-      </p>
+        <p>
+          {{ show.description }}
+        </p>
+      </div>
     </li>
     {% endfor %}
 

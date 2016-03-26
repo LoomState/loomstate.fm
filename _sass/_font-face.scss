@@ -1,0 +1,16 @@
+
+@include font-face(Lora, normal, normal, 'lora-regular',    'loraregular');
+@include font-face(Lora, normal, italic, 'lora-bolditalic', 'loraitalic');
+@include font-face(Lora, bold,   normal, 'lora-bold',       'lorabold');
+@include font-face(Lora, bold,   italic, 'lora-bolditalic', 'lorabold_italic');
+
+@include font-face("Open Sans", 300,    normal, 'opensans-light',           'open_sanslight');
+@include font-face("Open Sans", 300,    italic, 'opensans-lightitalic',     'open_sanslight_italic');
+@include font-face("Open Sans", normal, normal, 'opensans-regular',         'open_sansregular');
+@include font-face("Open Sans", normal, italic, 'opensans-italic',          'open_sansitalic');
+@include font-face("Open Sans", bold,   normal, 'opensans-bold',            'open_sansbold');
+@include font-face("Open Sans", bold,   italic, 'opensans-bolditalic',      'open_sansbold_italic');
+@include font-face("Open Sans", 600,    normal, 'opensans-semibold',        'open_sanssemibold');
+@include font-face("Open Sans", 600,    italic, 'opensans-semibolditalic',  'open_sanssemibold_italic');
+@include font-face("Open Sans", 800,    normal, 'opensans-extrabold',       'open_sansextrabold');
+@include font-face("Open Sans", 800,    italic, 'opensans-extrabolditalic', 'open_sansextrabold_italic');

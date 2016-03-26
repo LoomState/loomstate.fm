@@ -1,3 +1,7 @@
+// ----------------------------------------------------------------------------
+//
+// Colours
+
 $color: (
   primary: #909,
   black:   #000,
@@ -16,20 +20,63 @@ $color: (
     @return map-get($color, $name);
 }
 
+
+// ----------------------------------------------------------------------------
+//
+// Font families
+
+$font-family: (
+  lora: unquote('"Lora", "Times New Roman", serif'),
+  open-sans: unquote('"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif'),
+);
+
+@function font-family($name) {
+  @return map-get($font-family, $name);
+}
+
+
+// ----------------------------------------------------------------------------
+//
+// Site scheme, combining colours and fonts
+
 $scheme: (
   base: (
     font: (
-      family: '"Helvetica Neue", Helvetica, Arial, sans-serif',
+      family: font-family(lora),
       size: 16px,
       weight: 400,
     ),
     line-height: 1.5,
   ),
 
+  heading: (
+    font: (
+      family: font-family(open-sans),
+      weight: 700,
+    ),
+  ),
+
+  nav: (
+    background: rgba(color(black), 0.44),
+    border: rgba(#fff, 0.50),
+    color: color(white),
+    font: (
+      family: font-family(open-sans),
+      weight: 800,
+      size: 20px,
+    ),
+  ),
+
+
   header: (
-    background: #eee,
-    border: #ccc,
-    color: color(text),
+    background: rgba(color(black), 0.44),
+    border: rgba(#fff, 0.50),
+    color: color(white),
+    font: (
+      family: font-family(open-sans),
+      weight: 800,
+      size: 20px,
+    ),
   ),
 
   footer: (
@@ -49,6 +96,11 @@ $scheme: (
   @return map-get($scheme, $element);
 }
 
+
+// ----------------------------------------------------------------------------
+//
+// Layouts
+
 $layout: (
   gutter: 20px,
   content-width: 800px,
@@ -62,7 +114,7 @@ $spacing-unit:     30px;
 
 $text-color:       #111;
 $background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
+$brand-color:      #215EAF;
 
 $grey-color:       #828282;
 $grey-color-light: lighten($grey-color, 40%);

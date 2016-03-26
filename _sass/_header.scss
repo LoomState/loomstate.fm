@@ -3,27 +3,39 @@
 // Header
 
 .header {
-  background: scheme(header, background);
-  border-bottom: 1px solid scheme(header, border);
 
-  &__content {
-    max-width: layout(content-width);
-    margin: 0 auto;
-    padding: 0 layout(gutter);
+  margin: 0;
+  padding: 180px layout(gutter) 120px;
+
+  background: #666;
+  background-image:
+    radial-gradient(circle at top, rgba(#fff, 0.22), rgba(#000, 0.5)),
+    url(../images/noise.png);
+  box-shadow: 0 1px rgba(#000, 0.5);
+
+  font-family: scheme(header, font, family);
+  font-weight: 800;
+  color: scheme(header, color);
+  text-align: center;
+  line-height: 1.2;
+  text-shadow: 0 3px 15px rgba(#000, 0.5);
+
+  &__title, &__subtitle {
+    margin: 0.1em auto;
+    font-family: inherit;
+    line-height: inherit;
   }
 
   &__title {
-    color: scheme(header, color);
+    font-size: 3.6rem;
+    font-weight: inherit;
+    max-width: 800px;
   }
 
-  &__nav {
-    float: right;
-  }
-
-  &__link {
-    color: scheme(header, color);
-    &:not(:last-child) {
-      margin-right: layout(gutter);
-    }
+  &__subtitle {
+    font-size: 1.2rem;
+    max-width: 540px;
+    font-weight: 700;
   }
 }
+

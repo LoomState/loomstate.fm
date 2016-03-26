@@ -1,15 +1,30 @@
-<header class='header'>
-  <div class='header__content'>
+{% if page.number %}
+{% assign show = page.show | select_show %}
+{% endif %}
+<nav class='nav'>
 
-    <a class='header__title' href='{{ site.baseurl }}/'>{{ site.title }}</a>
+  <a class='nav__brand-link' href='{{ site.baseurl }}/'>{{ site.title }}</a>
 
-    <nav class='header__nav'>
-      {% for page in site.pages %}
-        {% if page.title %}
-        <a class='header__link' href='{{ page.url | prepend: site.baseurl }}'>{{ page.title }}</a>
-        {% endif %}
-      {% endfor %}
-    </nav>
-
+  <div class='nav__list'>
+    {% for page in site.header_nav %}
+      {% if page.title %}
+      <a class='nav__link' href='{{ page.url | prepend: site.baseurl }}'>{{ page.title }}</a>
+      {% endif %}
+    {% endfor %}
   </div>
+
+</nav>
+
+{% if page.title %}
+<header class='header'>
+
+  <h1 class='header__title'>{% if page.number %}#{{ page.number }}: {% endif %}{{ page.title }}</h1>
+  {% if page.number %}
+    <h2 class='header__subtitle'>{{ show.title }}</h2>
+  {% elsif page.subtitle %}
+    <h2 class='header__subtitle'>{{ page.subtitle }}</h2>
+  {% else %}
+  {% endif %}
+
 </header>
+{% endif %}

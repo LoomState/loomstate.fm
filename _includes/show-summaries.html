@@ -1,12 +1,18 @@
 <section class='show-summaries'>
 
-  <h1 class='section-heading'>Shows</h1>
+  <h1 class='section-heading'>
+    Shows
+    <a class='section-heading__alt-link' href='{{ '/shows/' | prepend: site.baseurl }}'>Show details →</a>
+  </h1>
 
   <ul class='show-summary-list'>
     {% for show in site.shows %}
       <li class='show-summary'>
         <a class='show-summary__link' href='{{ show.url | prepend: site.baseurl }}'>
-          <img class='show-summary__image' src='{{ show.show.cover_image }}'>
+
+          <div class='show-summary__cover' style='background-image: url({{ show | cover_image }});'>
+          </div>
+
           <h2 class='show-summary__title'>{{ show.title }}</h2>
         </a>
       </li>
@@ -14,3 +20,4 @@
   </ul>
 
 </section>
+

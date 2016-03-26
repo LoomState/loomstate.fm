@@ -2,15 +2,19 @@
 
   <h1 class='section-heading'>
     Latest episodes
-    <a href='{{ '/episodes/' | prepend: site.baseurl }}'>All episodes →</a>
+    <a class='section-heading__alt-link' href='{{ '/episodes/' | prepend: site.baseurl }}'>All episodes →</a>
   </h1>
 
   <ul class='latest-episode-list'>
     {% for episode in site.episodes limit:3 %}
+      {% assign show = episode.show | select_show %}
       <li class='latest-episode'>
         <a class='latest-episode__link' href='{{ episode.url | prepend: site.baseurl }}'>
-          <img class='latest-episode__image' src='{{ episode.show.cover_image }}'>
-          <h2 class='latest-episode__title'>{{ episode.show.title }} {{ episode.number }}</h2>
+
+          <div class='latest-episode__cover' style='background-image: url({{ show | cover_image }});'>
+          </div>
+
+          <h2 class='latest-episode__title'>{{ show.title }} {{ episode.number }}</h2>
         </a>
       </li>
     {% endfor %}

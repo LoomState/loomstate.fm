@@ -1,47 +1,47 @@
 ---
 layout: default
 ---
+{% assign show = page %}
 
-<div class='page-content'>
+<div class='show-detail-section'>
+  <div class='show-detail'>
 
-  <div>
-    <img alt='{{ page.name }}' class='show__cover' src='{{ page.cover_image }}'>
-    <h2>{{ page.name }}</h2>
-    <p>{{ page.description }}</p>
+    <div class='show-detail__cover-image'>
+      <div class='show-detail__cover' style='background-image: url({{ show | cover_image }});'></div>
+    </div>
 
-    <p>
-      {% for host in page.hosts %}
-        {% if forloop.first %}
-          Hosted by
-        {% endif %}
+    <div class='show-detail__description-section'>
+      <h2 class='show-detail__title'>{{ show.title }}</h2>
+      <p class='show-detail__description'>{{ page.description }}</p>
 
-        {% assign people = site.people | where:"slug",host %}
-        {% for person in people where:"slug",host %}
-          <a href='{{ person.url }}'>{{ person.name }}</a>
-        {% endfor %}
+      <p class='show__links'>
+        <a href='#' title='Subscribe via RSS'>RSS</a>
+        <a href='#' title='{{ page.name }} on iTunes'>iTunes</a>
+        <a href='mailto:{{ page.email }}'>Contact</a>
+      </p>
+    </div>
 
-        {% if forloop.last %}
-          .
-        {% endif %}
-      {% endfor %}
-    </p>
-
-    <p class='show__links'>
-      <a href='#' title='Subscribe via RSS'>RSS</a>
-      <a href='#' title='{{ page.name }} on iTunes'>iTunes</a>
-      <a href='mailto:{{ page.email }}'>Contact</a>
-    </p>
   </div>
+</div>
 
-  <h2>Episodes</h2>
-  <ul>
-    {% assign episodes = site.episodes | where:"show",page.slug %}
-    {% for episode in episodes reversed %}
-      <li>
-        <h3><a href="{{ episode.url }}">#{{ episode.number }}: {{ episode.title }}</a></h3>
-        <h4>{{ episode.date }} - {{ episode.duration }}</h4>
-        <p>{{ episode.short_description }}</p>
+<div class='show-episodes-section'>
+
+  <h1 class='section-heading'>Episodes</h1>
+
+  <ul class='show-episodes'>
+    {% assign episodes = site.episodes | where:"show",page.slug | sort:'number' | reverse %}
+    {% for episode in episodes %}
+      <li class='show-episode'>
+        <h3 class='show-episode__title'><a href="{{ episode.url }}">#{{ episode.number }}: {{ episode.title }}</a></h3>
+        <h4 class='show-episode__meta'>{{ episode.date | date: "%B %d, %Y at %l:%m%p" }} • {{ episode.duration }}</h4>
+        <p class='show-episode__description'>{{ episode.summary }}</p>
+
+        {% if forloop.rindex != 1 %}
+        <hr class='section-separator'>
+
+        {% endif %}
       </li>
     {% endfor %}
   </ul>
+
 </div>

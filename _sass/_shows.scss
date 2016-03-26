@@ -1,0 +1,42 @@
+.shows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.show {
+  display: flex;
+  margin: 0 auto layout(gutter) * 2;
+}
+
+.show__cover-link {
+  flex: 0 200px;
+  margin-right: layout(gutter);
+}
+
+.show__cover {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: block;
+  width: 100%;
+  height: 0;
+  padding: 0 0 100% 0;
+}
+
+.show__description {
+  flex: 1;
+  margin: layout(gutter);
+  font-size: 20px;
+}
+
+.show__title {
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.show__hosts {
+  font-size: 20px;
+  font-weight: 700;
+}
+

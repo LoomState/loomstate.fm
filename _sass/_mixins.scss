@@ -1,8 +1,30 @@
-
 @mixin clearfix {
   &:after {
     content: "";
     display: table;
     clear: both;
   }
+}
+
+@mixin font-face($family, $weight, $style, $filename, $svgid) {
+  @font-face {
+    font-family: quote($family);
+    src: url('../fonts/' + $filename + '.eot');
+    src: url('../fonts/' + $filename + '.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/' + $filename + '.woff2') format('woff2'),
+         url('../fonts/' + $filename + '.woff') format('woff'),
+         url('../fonts/' + $filename + '.ttf') format('truetype'),
+         url('../fonts/' + $filename + '.svg#' + $svgid) format('svg');
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: strip-unit($size) / 16 * 1rem;
 }
