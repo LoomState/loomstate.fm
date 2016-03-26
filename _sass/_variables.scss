@@ -9,7 +9,7 @@ $color: (
 
   text:       #111,
   background: #fdfdfd,
-  brand:      #2a7ae2,
+  brand:      #BB0C0C,
 
   grey:       #888,
   grey-light: lighten(#888, 40%),
@@ -47,6 +47,18 @@ $scheme: (
       weight: 400,
     ),
     line-height: 1.5,
+    background: color(background),
+  ),
+
+  text: (
+    color: color(text),
+  ),
+
+  link: (
+    color: color(brand),
+    hover: (
+      color: darken(color(brand), 10%),
+    ),
   ),
 
   heading: (
@@ -111,10 +123,6 @@ $layout: (
 }
 
 $spacing-unit:     30px;
-
-$text-color:       #111;
-$background-color: #fdfdfd;
-$brand-color:      #215EAF;
 
 $grey-color:       #828282;
 $grey-color-light: lighten($grey-color, 40%);

@@ -1,22 +1,9 @@
 {% if page.number %}
 {% assign show = page.show | select_show %}
 {% endif %}
-<nav class='nav'>
-
-  <a class='nav__brand-link' href='{{ site.baseurl }}/'>{{ site.title }}</a>
-
-  <div class='nav__list'>
-    {% for page in site.header_nav %}
-      {% if page.title %}
-      <a class='nav__link' href='{{ page.url | prepend: site.baseurl }}'>{{ page.title }}</a>
-      {% endif %}
-    {% endfor %}
-  </div>
-
-</nav>
 
 {% if page.title %}
-<header class='header'>
+<header class='header'{% if page.tintColor %} style='background-color: {{ page.tintColor }}'{% endif %}>
 
   <h1 class='header__title'>{% if page.number %}#{{ page.number }}: {% endif %}{{ page.title }}</h1>
   {% if page.number %}

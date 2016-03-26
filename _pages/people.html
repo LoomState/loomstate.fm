@@ -1,20 +1,21 @@
 ---
-layout: default
+layout: page
 title: People
 permalink: /people/
 ---
 <div class='page-content'>
 
-  <h1>People</h1>
-
+  <h1>Hosts:</h1>
   <ul class='people-list'>
     {% for person in site.people %}
-    <li>
-      <h2>
-        <a class='person-link' href='{{ person.url | prepend: site.baseurl }}'>{{ person.title }}</a>
-      </h2>
+    <li class='person'>
+      <a class='person__link' href='{{ person.url | prepend: site.baseurl }}'>
+        <div class='person__avatar' style='background-image: url(/people/{{ person.slug }}.jpg);'></div>
+        <h2 class='person__title'>{{ person.title }}</h2>
+      </a>
     </li>
     {% endfor %}
   </ul>
 
+  <h1>Guests:</h1>
 </div>

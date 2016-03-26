@@ -7,8 +7,8 @@
 }
 
 html {
-  color: $text-color;
-  background-color: $background-color;
+  color: scheme(text, color);
+  background-color: scheme(base, background);
   font:
     scheme(base, font, weight)
     #{scheme(base, font, size)}/#{scheme(base, line-height)}
@@ -89,11 +89,11 @@ h6 { font-size: 1em; }
 // Links
 
 a {
-  color: $brand-color;
+  color: scheme(link, color);
   text-decoration: none;
 
   &:hover {
-    color: $text-color;
+    color: scheme(link, hover, color);
     text-decoration: underline;
   }
 }

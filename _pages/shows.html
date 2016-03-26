@@ -7,7 +7,7 @@ permalink: /shows/
 
   <ul class='shows'>
 
-    {% for show in site.shows %}
+    {% for show in site.shows | sort:'title' %}
     <li class='show'>
       <a class='show__cover-link' href='{{ show.url }}'>
         <div class='show__cover' style='background-image: url({{ show | cover_image }});'>

@@ -1,28 +1,23 @@
-.show-summaries {
-  max-width: layout(content-width);
-  margin: 0 auto;
-  padding: 40px 0;
-}
-
-.show-summary-list {
+.people-list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
+  flex-wrap: wrap;
 }
 
-.show-summary {
-  flex: 0 20%;
-  max-width: 160px;
+.person {
+  flex: 0 25%;
+  max-width: 200px;
   padding: 10px;
-}
-
-.show-summary__link {
-  display: block;
   text-align: center;
 }
 
-.show-summary__cover {
+.person__link {
+  display: block;
+}
+
+.person__avatar {
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -34,8 +29,7 @@
   margin: 0 0 10px;
 }
 
-.show-summary__title {
+.person__title {
   font-size: 16px;
-  font-weight: 700;
 }
 
