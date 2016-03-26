@@ -1,17 +1,27 @@
-{% if page.number %}
-{% assign show = page.show | select_show %}
-{% endif %}
-
 {% if page.title %}
-<header class='header'{% if page.tintColor %} style='background-color: {{ page.tintColor }}'{% endif %}>
+<header class='header'{% if show.tintColor %} style='background-color: {{ show.tintColor }}'{% endif %}>
 
-  <h1 class='header__title'>{% if page.number %}#{{ page.number }}: {% endif %}{{ page.title }}</h1>
-  {% if page.number %}
+  {% if episode %}
+    <h1 class='header__title'>#{{ episode.number }}: {{ episode.title }}</h1>
     <h2 class='header__subtitle'>{{ show.title }}</h2>
-  {% elsif page.subtitle %}
-    <h2 class='header__subtitle'>{{ page.subtitle }}</h2>
+
+  {% elsif show %}
+    <h1 class='header__title'>{{ show.title }}</h1>
+    <h2 class='header__subtitle'>{{ show.subtitle }}</h2>
+
   {% else %}
+    <h1 class='header__title'>{{ page.title }}</h1>
+    {% if page.subtitle %}
+      <h2 class='header__subtitle'>{{ page.subtitle }}</h2>
+    {% endif %}
   {% endif %}
 
 </header>
+{% endif %}
+
+
+{% if show.tintColor %}
+<style>
+a { color: {{ show.tintColor }}; }
+</style>
 {% endif %}

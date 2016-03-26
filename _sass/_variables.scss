@@ -57,7 +57,7 @@ $scheme: (
   link: (
     color: color(brand),
     hover: (
-      color: darken(color(brand), 10%),
+      color: lighten(color(text), 20%),
     ),
   ),
 

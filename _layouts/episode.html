@@ -1,7 +1,11 @@
 ---
 layout: default
 ---
+{% assign show = page.show | select_show %}
 {% assign episode = page %}
+
+{% include header.html %}
+
 <article class='episode'>
   <div class='episode__content'>
 

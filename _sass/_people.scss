@@ -33,3 +33,26 @@
   font-size: 16px;
 }
 
+
+
+.person-bio {
+  margin: 0 0 40px;
+  padding: 0 layout(gutter) / 2;
+  display: flex;
+}
+
+.person-bio__avatar-container {
+  flex: 0 260px;
+  max-width: 260px;
+  padding: 0 layout(gutter) / 2;
+}
+
+.person-bio__description {
+  flex: 1;
+  padding: 0 layout(gutter) / 2;
+}
+
+.person-shows {
+  margin: 0 0 60px;
+  padding: 0 layout(gutter);
+}

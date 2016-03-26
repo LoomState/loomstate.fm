@@ -20,7 +20,7 @@ permalink: /shows/
         {% if hosts.size %}
           <h4 class='show__hosts'>Hosted by
           {% for host in hosts %}
-            <a href='{{ host.url }}'>{{ host.name }}</a>{% if forloop.last %}.{% elsif hosts.size > 2 %},{% endif %}
+            <a href='{{ host.url }}'>{{ host.title }}</a>{% if forloop.last %}.{% elsif hosts.size > 2 %},{% endif %}
 
             {% if hosts.size == 2 and forloop.first %}
               &amp;
