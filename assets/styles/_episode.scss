@@ -1,0 +1,33 @@
+.episode {
+  font-size: 20px;
+}
+
+.episode__content {
+  padding: 60px layout(gutter) / 2;
+  max-width: layout(content-width);
+  margin: 0 auto;
+}
+
+
+.episode__title {
+  font-size: 36px;
+}
+
+.episode__meta {
+  font-size: 16px;
+  color: #999;
+}
+
+.episode__player {
+  margin: 20px 0 40px;
+}
+
+.episode__show {
+  background: color(grey-light);
+  .page-content {
+    padding: 40px 0;
+  }
+  .show {
+    margin: 0 auto;
+  }
+}

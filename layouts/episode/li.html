@@ -1,0 +1,5 @@
+<li class='show-episode'>
+  <h3 class='show-episode__title'><a href="{{ .Permalink }}">#{{ .Params.number }}: {{ .Title }}</a></h3>
+  <h4 class='show-episode__meta'>{{ dateFormat "Monday, Jan 2, 2006" .Date }} • {{ .Params.duration }}</h4>
+  <p class='show-episode__description'>{{ .Params.summary }}</p>
+</li>

@@ -1,0 +1,38 @@
+---
+Type: page
+Title: Contact
+---
+
+<h2>Contact details</h2>
+
+<h4><a href='https://twitter.com/loomstatefm'>@loomstatefm</a></h4>
+
+<p>Follow us on twitter for the latest show and episode announcements</p>
+
+<h4><a href='mailto:contact@loomstate.fm'>contact@loomstate.fm</a></h4>
+
+<p>Send us an email for long form contact</p>
+
+<h4>Contact form</h4>
+
+<p>Or use the contact form:</p>
+
+<form action='https://formspree.io/contact@loomstate.fm' method='POST'>
+  <input type="hidden" name="_next" value="//site.io/thanks.html" />
+  <input type="hidden" name="_subject" value="New submission!" />
+  <input type="text" name="_gotcha" />
+
+  <label for='name'>
+    <span>Name:</span>
+    <input type='text' id='name' required name='name' placeholder='Joe Dirt'>
+  </label>
+  <label for='_replyto'>
+    <span>Email:</span>
+    <input type='email' id='_replyto' required name='_replyto' placeholder='name@domain.tld'>
+  </label>
+  <label for='message'>
+    <span>Message:</span>
+    <textarea id='message' required name='message' placeholder='How can we help?'></textarea>
+  </label>
+  <input type='submit' value='Send'>
+</form>

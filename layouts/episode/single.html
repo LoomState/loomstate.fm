@@ -1,0 +1,44 @@
+{{ partial "header.html" . }}
+{{ $show := index (where (where .Site.Pages "Type" "show") "Slug" .Params.show) 0 }}{{ $hosts := where (where .Site.Pages "Type" "person") "Slug" "in" .Params.hosts }}
+
+<article class='episode'>
+  <div class='episode__content'>
+
+    <h5 class='episode__show-link'><a href="{{ $show.Permalink }}">{{ $show.Title }}</a></h5>
+
+    <h2 class='episode__title'><a href="{{ .Permalink }}">#{{ .Params.number }}: {{ .Title }}</a></h2>
+    <h2 class='episode__meta'>{{ dateFormat "Monday, Jan 2, 2006" .Date }} • {{ .Params.duration }}</h2>
+
+    <ul class='people-list'>
+      {{ range $index, $page := (where (where .Site.Pages "Type" "person") "Slug" "in" .Params.guests) }}
+        {{ $page.Render "li" }}
+      {{ end }}
+      {{ range $index, $page := (where (where .Site.Pages "Type" "person") "Slug" "in" .Params.hosts) }}
+        {{ $page.Render "li" }}
+      {{ end }}
+    </ul>
+
+    <div class='episode__player'>
+      <audio controls="controls">
+        Your browser does not support audio.
+        <source src="{{ .Params.enclosureurl }}" type="audio/mp3">
+      </audio>
+      <h2 class='episode__meta'>Download: <a href='{{ .Params.enclosureurl }}' download>MP3 ({{ .Params.enclosuresize }} MB)</a></h2>
+    </div>
+
+    {{ .Content }}
+
+  </div>
+</article>
+
+<div class='episode__show'>
+  <div class='page-content'>
+    <ul class='shows'>
+      {{ range where (where .Site.Pages "Type" "show") "Slug" .Params.show }}
+        {{ .Render "li" }}
+      {{ end }}
+    </ul>
+  </div>
+</div>
+
+{{ partial "footer.html" . }}

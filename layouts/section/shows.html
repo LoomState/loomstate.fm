@@ -1,0 +1,11 @@
+{{ partial "header.html" . }}
+
+<div class='page-content'>
+  <ul class='shows'>
+    {{ range where .Site.Pages "Type" "show" }}
+      {{ .Render "li" }}
+    {{ end }}
+  </ul>
+</div>
+
+{{ partial "footer.html" . }}

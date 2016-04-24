@@ -1,0 +1,11 @@
+<nav class='nav'>
+
+  <a class='nav__brand-link' href='{{ .Site.BaseURL }}'>{{ .Site.Title }}</a>
+
+  <div class='nav__list'>
+    {{ range $.Site.Params.header }}
+      <a class='nav__link' href='{{ .Url }}'>{{ .Title }}</a>
+    {{ end }}
+  </div>
+
+</nav>

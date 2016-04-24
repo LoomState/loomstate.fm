@@ -1,0 +1,30 @@
+baseURL: https://loomstate.fm/
+canonifyURLs: true
+googleAnalytics: UA-76851634-1
+languageCode: en-us
+title: LoomState.fm
+copyright: Copyright © Loom State Productions
+
+disableRSS: true
+verbose: true
+verboseLog: true
+
+Params:
+  author: LoomState.fm
+  email: info@loomstate.fm
+  explicit: "no"
+  itunesblock: "no"
+  header:
+    - {Title: Shows, Url: /shows/}
+    - {Title: People, Url: /people/}
+    - {Title: About, Url: /about/}
+    - {Title: Contact, Url: /contact/}
+  footer:
+    - {Title: Home, Url: /}
+    - {Title: Shows, Url: /shows/}
+    - {Title: People, Url: /people/}
+    - {Title: Episodes, Url: /episodes/}
+    - {Title: About, Url: /about/}
+    - {Title: Contact, Url: /contact/}
+
+Taxonomies: {}

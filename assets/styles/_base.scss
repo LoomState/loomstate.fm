@@ -1,0 +1,146 @@
+// ----------------------------------------------------------------------------
+//
+// Base
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color: scheme(text, color);
+  background-color: scheme(base, background);
+  font:
+    scheme(base, font, weight)
+    #{scheme(base, font, size)}/#{scheme(base, line-height)}
+    scheme(base, font, family);
+  text-size-adjust: 100%;
+  font-feature-settings: "kern" 1;
+  font-kerning: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, ul, ol, dl, figure {
+  margin-top: 0;
+  margin-bottom: $spacing-unit / 2;
+}
+
+
+// ----------------------------------------------------------------------------
+//
+// Images
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+
+// ----------------------------------------------------------------------------
+//
+// Figures
+
+figure > img {
+  display: block;
+}
+
+figcaption {
+  font-size: 0.875em;
+}
+
+
+// ----------------------------------------------------------------------------
+//
+// Lists
+
+ul, ol {
+  margin-left: $spacing-unit;
+}
+
+li {
+  > ul, > ol {
+    margin-bottom: 0;
+  }
+}
+
+
+// ----------------------------------------------------------------------------
+//
+// Headings
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: scheme(heading, font, family);
+  font-weight: scheme(heading, font, weight);
+}
+
+h1 { font-size: 2em; }
+h2 { font-size: 1.8em; }
+h3 { font-size: 1.6em; }
+h4 { font-size: 1.4em; }
+h5 { font-size: 1.2em; }
+h6 { font-size: 1em; }
+
+
+// ----------------------------------------------------------------------------
+//
+// Links
+
+a {
+  color: scheme(link, color);
+  text-decoration: none;
+
+  &:hover {
+    color: scheme(link, hover, color);
+    text-decoration: underline;
+  }
+}
+
+
+// ----------------------------------------------------------------------------
+//
+// Blockquotes
+
+blockquote {
+  // color: $grey-color;
+  border-left: 4px solid $grey-color-light;
+  padding-left: $spacing-unit / 2;
+  // font-size: 18px;
+  // letter-spacing: -1px;
+  font-style: italic;
+
+  >:last-child {
+    margin-bottom: 0;
+  }
+  margin: 40px 0;
+}
+
+
+// ----------------------------------------------------------------------------
+//
+// Code formatting
+
+pre, code {
+  font-size: 15px;
+  border: 1px solid $grey-color-light;
+  border-radius: 3px;
+  background-color: #eef;
+}
+
+code {
+  padding: 1px 5px;
+}
+
+pre {
+  padding: 8px 12px;
+  overflow-x: auto;
+
+  > code {
+    border: 0;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+

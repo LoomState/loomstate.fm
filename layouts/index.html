@@ -1,0 +1,65 @@
+{{ partial "header.html" . }}
+
+<section id='content' role='main'>
+
+  <section class='latest-episodes'>
+
+    <h1 class='section-heading'>
+      Latest episodes
+      <a class='section-heading__alt-link' href='/episodes/'>All episodes →</a>
+    </h1>
+
+    <ul class='latest-episode-list'>
+
+      {{ range first 3 (where .Data.Pages "Type" "episode") }}
+        {{ $show := index (where (where .Site.Pages "Type" "show") "Slug" .Params.show) 0 }}
+        <li class='latest-episode'>
+          <a class='latest-episode__link' href='{{ .Permalink }}' title='{{ $show.Title }} #{{ .Params.number }}: {{ .Title }}'>
+
+            <div class='latest-episode__cover'
+              style='background-image: url(/images/shows/{{ .Params.show }}.jpg);'>
+            </div>
+
+            <h2 class='latest-episode__title'>{{ $show.Title }} #{{ .Params.number }}</h2>
+          </a>
+        </li>
+
+      {{ end }}
+    </ul>
+
+  </section>
+
+
+  <hr class='section-separator'>
+
+
+  <section class='show-summaries'>
+
+    <h1 class='section-heading'>
+      Shows
+      <a class='section-heading__alt-link' href='/shows/'>Show details →</a>
+    </h1>
+
+    <ul class='show-summary-list'>
+
+      {{ range $index, $page := (where .Data.Pages "Type" "show") }}
+        <li class='show-summary'>
+          <a class='show-summary__link' href='{{ .Permalink }}' title='{{ .Title }}'>
+
+            <div class='show-summary__cover'
+              style='background-image: url(/images/shows/{{ .Slug }}.jpg);'>
+            </div>
+
+            <h2 class='show-summary__title'>{{ .Title }}</h2>
+          </a>
+        </li>
+      {{ end }}
+
+    </ul>
+
+  </section>
+
+
+</section>
+
+{{ partial "footer.html" . }}

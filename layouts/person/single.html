@@ -1,0 +1,78 @@
+{{ partial "header.html" . }}
+
+{{ $person := . }}
+{{ $slug := .Slug }}
+{{ $shows := where .Site.Pages "Type" "show" }}
+{{ $episodes := where .Site.Pages "Type" "episode" }}
+
+{{ $.Scratch.Set "is_host" false }}
+{{ range $shows }}
+{{ if in .Params.hosts $slug }}
+{{ $.Scratch.Set "is_host" true }}
+{{ end }}
+{{ end }}
+{{ $is_host := ($.Scratch.Get "is_host") }}
+
+{{ $.Scratch.Set "is_guest" false }}
+{{ range $episodes }}
+{{ if in .Params.guests $slug }}
+{{ $.Scratch.Set "is_guest" true }}
+{{ end }}
+{{ end }}
+{{ $is_guest := ($.Scratch.Get "is_guest") }}
+
+<div class='page-content'>
+
+  <div class='person-bio'>
+
+    <div class='person-bio__avatar-container'>
+      <div class='person__avatar' style='background-image: url(/images/people/{{ .Slug }}.jpg);'></div>
+    </div>
+
+    <div class='person-bio__description'>
+      <h2 class='person-bio__title'>{{ .Title }}</h2>
+
+      <ul>
+        {{ if isset .Params "twitter" }}
+        <li><a href='https://twitter.com/{{ .Params.twitter }}'>@{{ .Params.twitter }}</a></li>
+        {{ end }}
+        {{ if isset .Params "website" }}
+        <li><a href='{{ .Params.website }}'>{{ .Params.website }}</a></li>
+        {{ end }}
+      </ul>
+
+      {{ .Content }}
+    </div>
+
+  </div>
+
+  <div class='person-shows'>
+
+    {{ if $is_host }}
+      <h3>{{ .Title }}'s shows:</h3>
+      <ul>
+        {{ range $shows }}
+          {{ if in .Params.hosts $slug }}
+            <li><a href='{{ .Permalink }}'>{{ .Title }}</a></li>
+          {{ end }}
+        {{ end }}
+      </ul>
+    {{ end }}
+
+    {{ if $is_guest }}
+      <h3>{{ .Title }}'s guest appearances:</h3>
+      <ul>
+        {{ range $episodes }}
+          {{ if in .Params.guests $slug }}
+            {{ $show := index (where (where .Site.Pages "Type" "show") "Slug" .Params.show) 0 }}
+            <li><a href='{{ .Permalink }}'>{{ $show.Title }} #{{ .Params.number }}: {{ .Title }}</a></li>
+          {{ end }}
+        {{ end }}
+      </ul>
+    {{ end }}
+
+  </div>
+
+</div>
+
+{{ partial "footer.html" . }}

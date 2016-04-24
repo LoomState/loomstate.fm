@@ -1,0 +1,15 @@
+    <item>{{ $show := index (where (where .Site.Pages "Type" "show") "Slug" .Params.show) 0 }}{{ $hosts := where (where .Site.Pages "Type" "person") "Slug" "in" .Params.hosts }}
+      <title>{{ .Params.number }}: {{ .Title }}</title>
+      <description>{{ .Description }}</description>
+      <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
+      <enclosure url="{{ .Params.enclosureurl }}" length="{{ .Params.enclosurelength }}" type="{{ if isset .Params "enclosuretype" }}{{ .Params.enclosuretype }}{{ else }}audio/mp3{{ end }}"/>
+      <link>{{ .Permalink }}</link>
+      <guid isPermaLink="false">{{ .Params.guid }}</guid>
+      <itunes:author>{{ if isset .Params "author" }}{{ .Params.author }}{{ else }}{{ $show.Params.author }}{{ end }}</itunes:author>
+      <itunes:subtitle>{{ if isset .Params "subtitle" }}{{ .Params.subtitle }}{{ else }}{{ .Description }}{{ end }}</itunes:subtitle>
+      <itunes:summary>{{ .Description }}</itunes:summary>
+      <itunes:explicit>{{ if isset .Params "explicit" }}{{ .Params.explicit }}{{ else }}{{ $.Param "explicit" }}{{ end }}</itunes:explicit>
+      <itunes:duration>{{ .Params.duration }}</itunes:duration>
+      <content:encoded>{{ .Content | chomp | html }}</content:encoded>
+      <itunes:image href="{{ if isset .Params "itunescover" }}{{ .Params.itunescover }}{{ else }}{{ if isset $show.Params "itunescover" }}{{ $show.Params.itunescover }}{{ else }}{{ $.Site.BaseURL }}images/shows/{{ $show.Slug }}-itunes.png{{ end }}{{ end }}"/>
+    </item>

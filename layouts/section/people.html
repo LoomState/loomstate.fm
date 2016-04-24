@@ -1,0 +1,22 @@
+{{ partial "header.html" . }}
+
+<div class='page-content'>
+
+  <ul class='people-list'>
+    {{ range $index, $page := (where .Site.Pages "Type" "person") }}
+    <li class='person'>
+
+      <a class='person__link' href='{{ .Permalink }}'>
+
+        <div class='person__avatar' style='background-image: url(/images/people/{{ .Slug }}.jpg);'></div>
+
+        <h2 class='person__title'>{{ .Title }}</h2>
+
+      </a>
+
+    </li>
+    {{ end }}
+  </ul>
+</div>
+
+{{ partial "footer.html" . }}

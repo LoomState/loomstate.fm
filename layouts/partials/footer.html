@@ -1,0 +1,34 @@
+<footer class='footer'>
+  <div class='footer__content'>
+
+    <p>LoomState.fm works with independent producers to publish podcasts about design, development, fashion and life.</p>
+
+    <p>Each episode is hosted by people like you and I.</p>
+
+    <ul class='footer__links'>
+      {{ range $.Site.Params.footer }}
+        <li><a class='footer__link' href='{{ .Url }}'>{{ .Title }}</a></li>
+      {{ end }}
+      <li><a href="mailto:{{ .Site.Params.Email }}">{{ .Site.Params.Email }}</a></li>
+    </ul>
+
+    <p class='footer__copyright'>
+      Copyright © {{ .Now.Year }} by Loom State Productions in Newcastle Australia.
+    </p>
+
+  </div>
+</footer>
+
+{{ with $.Site.GoogleAnalytics }}
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '{{ . }}', 'auto');
+  ga('send', 'pageview');
+</script>
+{{ end }}
+
+</body>
+</html>

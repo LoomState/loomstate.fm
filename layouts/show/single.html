@@ -1,0 +1,58 @@
+{{ partial "header.html" . }}
+
+{{ $slug := .Slug }}
+{{ $episodes := (where (where .Site.Pages "Type" "episode") "Params.show" $slug) }}
+{{ $people := where .Site.Pages "Type" "person" }}
+{{ $hosts := where $people "Slug" "in" .Params.hosts }}
+
+<div class='show-detail-section'>
+  <div class='show-detail'>
+
+    <div class='show-detail__cover-image'>
+      <div class='show-detail__cover' style='background-image: url(/images/shows/{{ .Slug }}.jpg);'></div>
+    </div>
+
+    <div class='show-detail__description-section'>
+      <h2 class='show-detail__title'>{{ .Title }}</h2>
+      <p class='show-detail__description'>{{ .Description }}</p>
+
+      <p class='show__links'>
+        {{ with .Params.rss }}
+        <a href='{{ .Params.rss }}' title='Subscribe via RSS'>RSS</a>
+        {{ end }}
+        {{ with .Params.itunelink }}
+        <a href='#' title='{{ .Title }} on iTunes'>iTunes</a>
+        {{ end }}
+        {{ with .Params.email }}
+        <a href='mailto:{{ .Params.email }}'>Contact</a>
+        {{ end }}
+      </p>
+
+      {{ with $hosts }}
+      <p class='show-detail__description'>
+        Hosted by
+        {{ $len := len . }}
+        {{ range $index, $element := . }}
+          {{ $countdown := (sub $len $index) }}
+          {{ .Render "link" | chomp | safeHTML }}{{ if gt $countdown 1 }}{{ if eq $countdown 2 }} and{{ else }},{{ end }}{{ end }}
+        {{ end }}
+      </p>
+      {{ end }}
+    </div>
+
+  </div>
+</div>
+
+<div class='show-episodes-section'>
+
+  <h1 class='section-heading'>Episodes</h1>
+
+  <ul class='show-episodes'>
+    {{ range $episodes }}
+      {{ .Render "li" }}
+    {{ end }}
+  </ul>
+
+</div>
+
+{{ partial "footer.html" . }}

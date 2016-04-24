@@ -1,0 +1,45 @@
+{{ $.Scratch.Set "Title" .Title }}
+{{ $.Scratch.Set "Subtitle" .Params.subtitle }}
+{{ $.Scratch.Set "TintColor" "" }}
+
+{{ if .IsPage }}
+  {{ if isset .Params "tintcolor" }}
+    {{ $.Scratch.Set "TintColor" .Params.tintcolor }}
+  {{ else if eq .Type "episode" }}
+    {{ $shows := where (where .Site.Pages "Type" "show") "Slug" .Params.show }}
+    {{ if ne (len $shows) 0 }}
+      {{ $show := index $shows 0 }}
+      {{ $.Scratch.Set "Subtitle" $show.Title }}
+      {{ if isset $show.Params "tintcolor" }}
+        {{ $.Scratch.Set "TintColor" $show.Params.tintcolor }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ $tintcolor := ($.Scratch.Get "TintColor") }}
+{{ if eq ($.Scratch.Get "Title") "Peoples" }}
+{{ $.Scratch.Set "Title" "People" }}
+{{ end }}
+
+<header class='header'{{ if ne $tintcolor "" }} style='background-color: {{ $tintcolor }}'{{ end }}>
+
+  {{ if .IsPage }}
+    {{ if eq .Type "episode" }}
+      <h1 class='header__title'>#{{ .Params.number }}: {{ .Title }}</h1>
+    {{ else }}
+      <h1 class='header__title'>{{ $.Scratch.Get "Title" }}</h1>
+    {{ end }}
+  {{ else }}
+    <h1 class='header__title'>{{ $.Scratch.Get "Title" }}</h1>
+  {{ end }}
+  {{ if ne ($.Scratch.Get "Subtitle") "" }}
+    <h2 class='header__subtitle'>{{ $.Scratch.Get "Subtitle" }}</h2>
+  {{ end }}
+
+</header>
+
+{{ if ne $tintcolor "" }}
+<style>
+a { color: {{ $tintcolor }}; }
+</style>
+{{ end }}

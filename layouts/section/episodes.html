@@ -1,0 +1,20 @@
+{{ partial "header.html" . }}
+
+<div class='page-content'>
+
+  <h1>All Episodes</h1>
+
+  <ul class='episode-list'>
+    {{ range where .Site.Pages "Type" "episode" }}
+    {{ $show := index (where (where .Site.Pages "Type" "show") "Slug" .Params.show) 0 }}
+    <li>
+      <p>
+        <a class='episode-link' href='{{ .Permalink }}'>{{ $show.Title }} #{{ .Params.number }}: {{ .Title }}</a>
+      </p>
+    </li>
+    {{ end }}
+  </ul>
+
+</div>
+
+{{ partial "footer.html" . }}

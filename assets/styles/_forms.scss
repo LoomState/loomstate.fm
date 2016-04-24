@@ -1,0 +1,48 @@
+
+form {
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  span {
+    display: block;
+    font-weight: bold;
+  }
+}
+
+input[type=text],
+input[type=email],
+textarea {
+  display: block;
+  width: 100%;
+  border: 1px solid #ddd;
+  background: transparent;
+  border-radus: 2px;
+  color: inherit;
+  font: inherit;
+  padding: 0.25em 0.5em;
+  margin: 0.5em 0 2em;
+}
+
+textarea {
+  min-height: 150px;
+}
+
+input[name=_gotcha] {
+  display: none;
+}
+
+input[type=submit] {
+  display: block;
+  border: none;
+  background: color(brand);
+  color: #fff;
+  box-shadow: 0 5px 15px rgba(#000, 0.5);
+  font: inherit;
+  width: 100%;
+  border-radius: 2px;
+  padding: 0.5em 1em;
+  font-weight: bold;
+  font-size: 1.2em;
+}

@@ -1,0 +1,28 @@
+{{ $people := where .Site.Pages "Type" "person" }}
+{{ $hosts := where $people "Slug" "in" .Params.hosts }}
+<li class='show'>
+
+  <a class='show__cover-link' href='{{ .Permalink }}'>
+    <div class='show__cover' style='background-image: url(/images/shows/{{ .Slug }}.jpg);'>
+    </div>
+  </a>
+
+  <div class='show__description'>
+    <h3 class='show__title'><a href='{{ .Permalink }}'>{{ .Title }}</a></h3>
+
+    {{ with $hosts }}
+      <h4 class='show__hosts'>
+        Hosted by
+        {{ $len := len . }}
+        {{ range $index, $element := . }}
+          {{ $countdown := (sub $len $index) }}
+          {{ .Render "link" | chomp | safeHTML }}{{ if gt $countdown 1 }}{{ if eq $countdown 2 }} and{{ else }},{{ end }}{{ end }}
+        {{ end }}
+      </h4>
+    {{ end }}
+
+    <p>
+      {{ .Description }}
+    </p>
+  </div>
+</li>

@@ -1,0 +1,24 @@
+  <channel>{{ $episodes := where (where $.Site.Pages "Type" "episode") "Params.show" .Slug }}{{ $episodeCount := len $episodes }}
+    <title>{{ .Title }}</title>
+    <link>{{ .Permalink }}</link>
+    <language>{{ $.Site.LanguageCode }}</language>
+    <copyright>{{ $.Site.Copyright }}</copyright>
+    <itunes:subtitle>{{ .Params.subtitle }}</itunes:subtitle>
+    <itunes:author>{{ $.Site.Params.author }}</itunes:author>
+    <itunes:summary>{{ .Description }}</itunes:summary>
+    <description>{{ .Description }}</description>
+    <itunes:block>{{ $.Param "itunesblock" }}</itunes:block>{{ if gt $episodeCount 0 }}{{ range first 1 $episodes }}
+    <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>{{ end }}{{ end }}
+    <itunes:keywords>{{ delimit .Keywords ", " }}</itunes:keywords>
+    <itunes:explicit>{{ $.Param "explicit" }}</itunes:explicit>
+    <itunes:owner>
+      <itunes:name>{{ $.Site.Params.author }}</itunes:name>
+      <itunes:email>{{ $.Site.Params.email }}</itunes:email>
+    </itunes:owner>
+    <itunes:image href="{{ if isset .Params "itunescover" }}{{ .Params.itunescover }}{{ else }}{{ $.Site.BaseURL }}images/shows/{{ .Slug }}-itunes.png{{ end }}"/>{{ range .Params.categories }}
+    <itunes:category text="{{ . | html }}"/>{{ end }}{{ range .Params.subcategories }}
+    <itunes:category text="{{ .category | html }}">
+      <itunes:category text="{{ .subcategory | html }}"/>
+    </itunes:category>{{ end }}{{ range $episodes }}
+{{ template "feed/episode.xml" . }}{{ end }}
+  </channel>
