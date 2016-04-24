@@ -17,9 +17,7 @@
       <p class='show-detail__description'>{{ .Description }}</p>
 
       <p class='show__links'>
-        {{ with .Params.rss }}
-        <a href='{{ .Params.rss }}' title='Subscribe via RSS'>RSS</a>
-        {{ end }}
+        <a href='{{ .Permalink }}/feed.xml' title='Subscribe via RSS'>RSS</a>
         {{ with .Params.itunelink }}
         <a href='#' title='{{ .Title }} on iTunes'>iTunes</a>
         {{ end }}
