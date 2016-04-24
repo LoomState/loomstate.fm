@@ -2,7 +2,7 @@
 Type: show
 Title: Retro Speculative
 
-Subtitle: Apple developer interview series
+Subtitle: Interviews with software developers and designers speculating about the past and future.
 Description: Humans speculating about the past and future. An interview series with software developers and designers.
 
 Hosts: [karl-bowden]
