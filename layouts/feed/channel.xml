@@ -1,5 +1,6 @@
   <channel>{{ $episodes := where (where $.Site.Pages "Type" "episode") "Params.show" .Slug }}{{ $episodeCount := len $episodes }}
     <title>{{ .Title }}</title>
+    <atom:link href="{{ .Permalink }}" rel="self" type="application/rss+xml" />
     <link>{{ .Permalink }}</link>
     <language>{{ $.Site.LanguageCode }}</language>
     <copyright>{{ $.Site.Copyright }}</copyright>
@@ -15,7 +16,7 @@
       <itunes:name>{{ $.Site.Params.author }}</itunes:name>
       <itunes:email>{{ $.Site.Params.email }}</itunes:email>
     </itunes:owner>
-    <itunes:image href="{{ if isset .Params "itunescover" }}{{ .Params.itunescover }}{{ else }}{{ $.Site.BaseURL }}images/shows/{{ .Slug }}-itunes.png{{ end }}"/>{{ range .Params.categories }}
+    <itunes:image href="{{ if isset .Params "itunescover" }}{{ .Params.itunescover }}{{ else }}{{ $.Site.BaseURL }}images/shows/{{ .Slug }}-itunes.jpg{{ end }}"/>{{ range .Params.categories }}
     <itunes:category text="{{ . | html }}"/>{{ end }}{{ range .Params.subcategories }}
     <itunes:category text="{{ .category | html }}">
       <itunes:category text="{{ .subcategory | html }}"/>

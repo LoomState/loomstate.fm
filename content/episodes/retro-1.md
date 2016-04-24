@@ -10,7 +10,7 @@ Duration: 01:07:05
 EnclosureUrl: https://episodes.loomstate.fm/retro/retro1.mp3
 EnclosureLength: 48900682
 EnclosureSize: 48.9
-Explicit: no
+Explicit: "no"
 
 Title: Don't know the Windozers - Matthew Palmer
 Description: Programming is a series of battles with the computer.

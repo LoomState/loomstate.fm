@@ -11,5 +11,5 @@
       <itunes:explicit>{{ if isset .Params "explicit" }}{{ .Params.explicit }}{{ else }}{{ $.Param "explicit" }}{{ end }}</itunes:explicit>
       <itunes:duration>{{ .Params.duration }}</itunes:duration>
       <content:encoded>{{ .Content | chomp | html }}</content:encoded>
-      <itunes:image href="{{ if isset .Params "itunescover" }}{{ .Params.itunescover }}{{ else }}{{ if isset $show.Params "itunescover" }}{{ $show.Params.itunescover }}{{ else }}{{ $.Site.BaseURL }}images/shows/{{ $show.Slug }}-itunes.png{{ end }}{{ end }}"/>
+      <itunes:image href="{{ if isset .Params "itunescover" }}{{ .Params.itunescover }}{{ else }}{{ if isset $show.Params "itunescover" }}{{ $show.Params.itunescover }}{{ else }}{{ $.Site.BaseURL }}images/shows/{{ $show.Slug }}-itunes.jpg{{ end }}{{ end }}"/>
     </item>
