@@ -34,7 +34,13 @@
 
       <ul>
         {{ if isset .Params "twitter" }}
-        <li><a href='https://twitter.com/{{ .Params.twitter }}'>@{{ .Params.twitter }}</a></li>
+        <li>Twitter: <a href='https://twitter.com/{{ .Params.twitter }}'>@{{ .Params.twitter }}</a></li>
+        {{ end }}
+        {{ if isset .Params "instagram" }}
+        <li>Instagram: <a href='https://www.instagram.com/{{ .Params.instagram }}/'>{{ .Params.instagram }}</a></li>
+        {{ end }}
+        {{ if isset .Params "github" }}
+        <li>GitHub: <a href='https://github.com/{{ .Params.github }}/'>{{ .Params.github }}</a></li>
         {{ end }}
         {{ if isset .Params "website" }}
         <li><a href='{{ .Params.website }}'>{{ .Params.website }}</a></li>

@@ -7,4 +7,4 @@ Website: http://matthewpalmer.net
 Slug: matthew-palmer
 ---
 
-Mac and iOS designer and developer in Sydney, Australia.
+Mac and iOS, designer and developer in Sydney, Australia.
