@@ -5,4 +5,4 @@ Twitter: cstonestreet
 Slug: chris-stonestreet
 ---
 
-UX specialist at NIB.
+Senior UX designer at NIB.
