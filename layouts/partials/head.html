@@ -5,13 +5,30 @@
   <meta name='description' content='{{ .Description }}'>
   <link rel='stylesheet' href='{{ .Site.BaseURL }}styles/main.css'>
   <link rel='canonical' href='{{ .Permalink }}'>
-  <link rel='alternate' type='application/rss+xml' title='{{ .Site.Title }}' href='{{ .Site.BaseURL }}feed.xml'>
+{{ $.Scratch.Set "MetaFallback" "true" }}
 {{ if .IsPage }}
 {{ if eq .Type "episode" }}{{ $show := index (where (where .Site.Pages "Type" "show") "Slug" .Params.show) 0 }}
+  {{ $.Scratch.Set "MetaFallback" "false" }}
+  <link rel='alternate' type='application/rss+xml' title='{{ $show.Title }}' href='{{ $show.Permalink }}/feed.xml'>
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@{{ $.Site.Params.twitter }}" />
   <meta name="twitter:title" content="{{ $show.Title }} #{{ .Params.number }}: {{ .Title }}" />
   <meta name="twitter:description" content="{{ .Description }}" />
   <meta name="twitter:image" content="{{ if isset .Params "itunescover" }}{{ .Params.itunescover }}{{ else }}{{ if isset $show.Params "itunescover" }}{{ $show.Params.itunescover }}{{ else }}{{ $.Site.BaseURL }}images/shows/{{ $show.Slug }}.jpg{{ end }}{{ end }}" />
+{{ else if eq .Type "show" }}
+  {{ $.Scratch.Set "MetaFallback" "false" }}
+  <link rel='alternate' type='application/rss+xml' title='{{ .Title }}' href='{{ .Permalink }}/feed.xml'>
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@{{ $.Site.Params.twitter }}" />
+  <meta name="twitter:title" content="{{ .Title }}" />
+  <meta name="twitter:description" content="{{ .Description }}" />
+  <meta name="twitter:image" content="{{ if isset .Params "itunescover" }}{{ .Params.itunescover }}{{ else }}{{ $.Site.BaseURL }}images/shows/{{ .Slug }}.jpg{{ end }}" />
 {{ end }}
+{{ end }}
+{{ if eq ($.Scratch.Get "MetaFallback") "true" }}
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@{{ $.Site.Params.twitter }}" />
+  <meta name="twitter:title" content="{{ .Title }}" />
+  <meta name="twitter:description" content="{{ if eq .Description "" }}{{ $.Site.Title }}{{ else }}{{ .Description }}{{ end }}" />
+  <meta name="twitter:image" content="{{ $.Site.BaseURL }}images/icon.jpg" />
 {{ end }}
