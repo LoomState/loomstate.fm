@@ -10,6 +10,7 @@ verbose: true
 verboseLog: true
 
 Params:
+  twitter: loomstatefm
   author: LoomState.fm
   email: info@loomstate.fm
   explicit: "no"

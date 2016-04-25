@@ -6,3 +6,12 @@
   <link rel='stylesheet' href='{{ .Site.BaseURL }}styles/main.css'>
   <link rel='canonical' href='{{ .Permalink }}'>
   <link rel='alternate' type='application/rss+xml' title='{{ .Site.Title }}' href='{{ .Site.BaseURL }}feed.xml'>
+{{ if .IsPage }}
+{{ if eq .Type "episode" }}{{ $show := index (where (where .Site.Pages "Type" "show") "Slug" .Params.show) 0 }}
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@{{ $.Site.Params.twitter }}" />
+  <meta name="twitter:title" content="{{ $show.Title }} #{{ .Params.number }}: {{ .Title }}" />
+  <meta name="twitter:description" content="{{ .Description }}" />
+  <meta name="twitter:image" content="{{ if isset .Params "itunescover" }}{{ .Params.itunescover }}{{ else }}{{ if isset $show.Params "itunescover" }}{{ $show.Params.itunescover }}{{ else }}{{ $.Site.BaseURL }}images/shows/{{ $show.Slug }}.jpg{{ end }}{{ end }}" />
+{{ end }}
+{{ end }}
