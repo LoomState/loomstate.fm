@@ -41,3 +41,22 @@
   font-weight: 700;
 }
 
+.show__button {
+  display: inline-block;
+  padding: 5px 10px;
+  font-family: font-family(open-sans);
+  font-weight: 600;
+  background: color(black);
+  color: color(white);
+
+  &:hover {
+    background: color(black);
+    color: color(white);
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(#000, 0.2);
+  }
+
+  &--small {
+    font-size: 1rem;
+  }
+}

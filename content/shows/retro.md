@@ -11,6 +11,7 @@ Keywords: [apple, ios, mac, interview]
 TintColor: "#2D3773"
 Slug: retro
 Url: retro
+PocketCastsLink: http://pca.st/wMrf
 
 Categories: [Society & Culture, Technology]
 Subcategories: [{category: Technology, subcategory: Software How-To}]

@@ -16,16 +16,6 @@
       <h2 class='show-detail__title'>{{ .Title }}</h2>
       <p class='show-detail__description'>{{ .Description }}</p>
 
-      <p class='show__links'>
-        <a href='{{ .Permalink }}/feed.xml' title='Subscribe via RSS'>RSS</a>
-        {{ with .Params.itunelink }}
-        <a href='#' title='{{ .Title }} on iTunes'>iTunes</a>
-        {{ end }}
-        {{ with .Params.email }}
-        <a href='mailto:{{ .Params.email }}'>Contact</a>
-        {{ end }}
-      </p>
-
       {{ with $hosts }}
       <p class='show-detail__description'>
         Hosted by
@@ -36,6 +26,23 @@
         {{ end }}
       </p>
       {{ end }}
+
+      <h4>Subscribe:</h4>
+
+      <p class='show__links'>
+        {{ if isset .Params "ituneslink" }}
+        <a class='show__button' href='{{ .Params.ituneslink }}' title='{{ .Title }} on iTunes'>iTunes</a>
+        {{ end }}
+        {{ if isset .Params "overcastlink" }}
+        <a class='show__button' href='{{ .Params.overcastlink }}' title='{{ .Title }} on Overcast'>Overcast</a>
+        {{ end }}
+        {{ if isset .Params "pocketcastslink" }}
+        <a class='show__button' href='{{ .Params.pocketcastslink }}' title='{{ .Title }} on Pocket Cast'>Pocket Casts</a>
+        {{ end }}
+
+        <a class='show__button' href='{{ .Permalink }}/feed.xml' title='Subscribe via RSS'>RSS</a>
+      </p>
+
     </div>
 
   </div>

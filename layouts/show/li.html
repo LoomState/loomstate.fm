@@ -1,4 +1,4 @@
-{{ $people := where .Site.Pages "Type" "person" }}
+{{ $people := where $.Site.Pages "Type" "person" }}
 {{ $hosts := where $people "Slug" "in" .Params.hosts }}
 <li class='show'>
 
@@ -24,5 +24,20 @@
     <p>
       {{ .Description }}
     </p>
+
+    <p>
+      {{ if isset .Params "ituneslink" }}
+      <a class='show__button show__button--small' href='{{ .Params.ituneslink }}' title='{{ .Title }} on iTunes'>iTunes</a>
+      {{ end }}
+      {{ if isset .Params "overcastlink" }}
+      <a class='show__button show__button--small' href='{{ .Params.overcastlink }}' title='{{ .Title }} on Overcast'>Overcast</a>
+      {{ end }}
+      {{ if isset .Params "pocketcastslink" }}
+      <a class='show__button show__button--small' href='{{ .Params.pocketcastslink }}' title='{{ .Title }} on Pocket Cast'>Pocket Casts</a>
+      {{ end }}
+
+      <a class='show__button show__button--small' href='{{ .Permalink }}/feed.xml' title='Subscribe via RSS'>RSS</a>
+    </p>
+
   </div>
 </li>
