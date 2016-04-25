@@ -11,6 +11,8 @@ Keywords: [design, development, denim, fashion, interview]
 TintColor: "#BB0C0C"
 Url: nan
 Slug: nan
+PocketCastsLink: http://pca.st/MMpr
+OvercastLink: overcast://x-callback-url/add?url=https%3A%2F%2Floomstate.fm%2Fnan%2Ffeed.xml
 
 Categories: [Society & Culture, Technology]
 Subcategories: [{category: Technology, subcategory: Software How-To}]
