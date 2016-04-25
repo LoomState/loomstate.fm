@@ -34,7 +34,7 @@
         <a class='show__button' href='{{ .Params.ituneslink }}' title='{{ .Title }} on iTunes'>iTunes</a>
         {{ end }}
         {{ if isset .Params "overcastlink" }}
-        <a class='show__button' href='{{ .Params.overcastlink }}' title='{{ .Title }} on Overcast'>Overcast</a>
+        <a class='show__button' href='{{ .Params.overcastlink | safeURL }}' title='{{ .Title }} on Overcast'>Overcast</a>
         {{ end }}
         {{ if isset .Params "pocketcastslink" }}
         <a class='show__button' href='{{ .Params.pocketcastslink }}' title='{{ .Title }} on Pocket Cast'>Pocket Casts</a>
