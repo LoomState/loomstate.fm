@@ -11,8 +11,9 @@ Keywords: [design, development, denim, fashion, interview]
 TintColor: "#BB0C0C"
 Url: nan
 Slug: nan
+iTunesLink: https://itunes.apple.com/au/podcast/not-a-number/id1107513636
 PocketCastsLink: http://pca.st/MMpr
-OvercastLink: overcast://x-callback-url/add?url=https%3A%2F%2Floomstate.fm%2Fnan%2Ffeed.xml
+OvercastLink: https://overcast.fm/itunes1107513636/not-a-number
 
 Categories: [Society & Culture, Technology]
 Subcategories: [{category: Technology, subcategory: Software How-To}]

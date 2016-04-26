@@ -11,8 +11,9 @@ Keywords: [apple, ios, mac, interview]
 TintColor: "#2D3773"
 Slug: retro
 Url: retro
+iTunesLink: https://itunes.apple.com/au/podcast/retro-speculative/id1107394477
 PocketCastsLink: http://pca.st/wMrf
-OvercastLink: overcast://x-callback-url/add?url=https%3A%2F%2Floomstate.fm%2Fretro%2Ffeed.xml
+OvercastLink: https://overcast.fm/itunes1107394477/retro-speculative
 
 Categories: [Society & Culture, Technology]
 Subcategories: [{category: Technology, subcategory: Software How-To}]
