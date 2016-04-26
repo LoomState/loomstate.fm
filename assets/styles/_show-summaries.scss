@@ -12,7 +12,13 @@
 }
 
 .show-summary {
-  flex: 0 20%;
+  flex: 0 50%;
+  @media (min-width: 480px) {
+    flex: 0 33.3333%;
+  }
+  @media (min-width: 768px) {
+    flex: 0 20%;
+  }
   max-width: 160px;
   padding: 10px;
 }
@@ -35,7 +41,10 @@
 }
 
 .show-summary__title {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700;
+  @media (min-width: 768px) {
+    font-size: 16px;
+  }
 }
 

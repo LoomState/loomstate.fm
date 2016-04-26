@@ -10,7 +10,13 @@
 
 
 .episode__title {
-  font-size: 36px;
+  font-size: 24px;
+  @media (min-width: 480px) {
+    font-size: 28px;
+  }
+  @media (min-width: 640px) {
+    font-size: 36px;
+  }
 }
 
 .episode__meta {

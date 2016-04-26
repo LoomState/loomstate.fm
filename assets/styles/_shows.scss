@@ -5,13 +5,21 @@
 }
 
 .show {
-  display: flex;
+  padding: 0 layout(gutter) / 2;
   margin: 0 auto layout(gutter) * 2;
+  @media (min-width: 640px) {
+    display: flex;
+  }
 }
 
 .show__cover-link {
+  display: block;
   flex: 0 200px;
-  margin-right: layout(gutter);
+  max-width: 240px;
+  margin: 0 auto layout(gutter);
+  @media (min-width: 640px) {
+    margin: 0 layout(gutter) 0 0;
+  }
 }
 
 .show__cover {
@@ -23,12 +31,15 @@
   height: 0;
   padding: 0 0 100% 0;
   box-shadow: 0 0 0 2px #fff, 0 0 0 3px #ccc;
+
 }
 
 .show__description {
   flex: 1;
-  margin: 0 layout(gutter);
   font-size: 20px;
+  @media (min-width: 640px) {
+    margin: 0 layout(gutter);
+  }
 }
 
 .show__title {

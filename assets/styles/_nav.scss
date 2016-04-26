@@ -3,17 +3,22 @@
 // Primary navigation
 
 .nav {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
 
   margin: 0;
   padding: 0;
   @include clearfix;
 
-  background: scheme(nav, background);
+  background: darken(color(grey), 40%);
   box-shadow: 0 1px scheme(nav, border);
+
+  text-align: center;
+  @media (min-width: 768px) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: scheme(nav, background);
+  }
 
   color: scheme(nav, color);
   font-family: scheme(nav, font, family);
@@ -22,22 +27,35 @@
   a { color: inherit; }
 
   &__brand-link {
-    float: left;
-    font-size: 18px;
-    line-height: 20px;
-    padding: 20px layout(gutter);
+    display: block;
+    font-size: 12px;
+    line-height: 12px;
+    padding: 10px layout(gutter) 0;
+    @media (min-width: 768px) {
+      padding: 20px layout(gutter);
+      font-size: 18px;
+      line-height: 20px;
+      float: left;
+    }
   }
 
   &__list {
-    float: right;
-    padding: 0 layout(gutter) 0 0;
+    padding: 0 10px;
+    @media (min-width: 768px) {
+      float: right;
+      padding: 0 layout(gutter) 0 0;
+    }
   }
 
   &__link {
     font-size: 12px;
     text-transform: uppercase;
     line-height: 20px;
-    float: left;
     padding: 22px layout(gutter) / 2 18px;
+    display: inline-block;
+
+    @media (min-width: 768px) {
+      float: left;
+    }
   }
 }

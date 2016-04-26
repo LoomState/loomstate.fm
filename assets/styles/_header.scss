@@ -5,7 +5,11 @@
 .header {
 
   margin: 0;
-  padding: 180px layout(gutter) 120px;
+  padding: 40px layout(gutter);
+  @media (min-width: 768px) {
+    padding: 180px layout(gutter) 120px;
+  }
+
 
   background: #666;
   background-image:
@@ -27,7 +31,10 @@
   }
 
   &__title {
-    font-size: 3.6rem;
+    font-size: 1.8em;
+    @media (min-width: 768px) {
+      font-size: 3.6rem;
+    }
     font-weight: inherit;
     max-width: 800px;
   }

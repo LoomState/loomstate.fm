@@ -12,7 +12,10 @@
     radial-gradient(circle at top, rgba(#fff, 0.10), rgba(#000, 0.9)),
     url(../images/noise.png);
 
-  color: #999;
+  color: #ddd;
+  @media (min-width: 480px) {
+    color: #999;
+  }
 
   &__content {
     max-width: layout(content-width);

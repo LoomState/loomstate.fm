@@ -7,10 +7,16 @@
 }
 
 .person {
-  flex: 0 25%;
+  flex: 0 50%;
   max-width: 200px;
   padding: 10px;
   text-align: center;
+  @media (min-width: 480px) {
+    flex: 0 33.333%;
+  }
+  @media (min-width: 768px) {
+    flex: 0 25%;
+  }
 }
 
 .person__link {
@@ -38,11 +44,15 @@
 .person-bio {
   margin: 0 0 40px;
   padding: 0 layout(gutter) / 2;
-  display: flex;
+
+  @media (min-width: 640px) {
+    display: flex;
+  }
 }
 
 .person-bio__avatar-container {
   flex: 0 260px;
+  margin: 0 auto;
   max-width: 260px;
   padding: 0 layout(gutter) / 2;
 }
