@@ -7,7 +7,7 @@ Description: Chris, Karl and Ryan join forces to create a verbal periodical, dis
 Hosts: [chris-stonestreet, karl-bowden, ryan-stuart]
 Author: Chris Stonestreet, Karl Bowden and Ryan Stuart
 
-Keywords: [design, development, denim, fashion, interview]
+Keywords: [not, number, web, design, development, denim, karl, bowden, ryan, stuart, chris, stonestreet, fashion, interview]
 TintColor: "#BB0C0C"
 Url: nan
 Slug: nan
