@@ -7,7 +7,7 @@ Description: Humans speculating about the past and future. An interview series w
 Hosts: [karl-bowden]
 Author: Karl Bowden
 
-Keywords: [apple, ios, mac, interview]
+Keywords: [retro, speculative, spec, apple, ios, mac, interview, karl, bowden]
 TintColor: "#2D3773"
 Slug: retro
 Url: retro
