@@ -12,7 +12,7 @@ EnclosureLength: 46192542
 EnclosureSize: 46.2
 Explicit: no
 
-Title: There going to see where I dropped you on your head
+Title: They're going to see where I dropped you on your head
 Description: James and Karl intimately discuss their experiences and differences with agency and product work.
 
 Hosts: [karl-bowden]
