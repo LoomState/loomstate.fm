@@ -31,7 +31,7 @@ We conveniently take the opportunity to interview James about how he got caught 
 <img src='http://media.tumblr.com/tumblr_lsiu19asVi1qdc5wb.gif'>
 
 - [@jnowland](https://twitter.com/jnowland/)
-- Graphic designer @ [Headjam](http://www.headjam.com.au)
+- Senior Digital Developer @ [Headjam](http://www.headjam.com.au)
 
 ### Co-working
 
