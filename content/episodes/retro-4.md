@@ -7,7 +7,7 @@ Date: 2016-05-24 21:30:00 +1100
 
 Guid: e930e687-79cb-4838-82cb-047c4c7d080b
 Duration: 1:12:53
-EnclosureUrl: https://episodes.loomstate.fm/retro/retro4.mp3
+EnclosureUrl: https://dts.podtrac.com/redirect.mp3/episodes.loomstate.fm/retro/retro4.mp3
 EnclosureLength: 45935200
 EnclosureSize: 45.9
 Explicit: "yes"

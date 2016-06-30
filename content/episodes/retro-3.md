@@ -7,7 +7,7 @@ Date: 2016-05-16 10:30:00 +1100
 
 Guid: 1fdcb130-27a4-4108-b2cb-cebb972282a9
 Duration: 44:56
-EnclosureUrl: https://episodes.loomstate.fm/retro/retro3.mp3
+EnclosureUrl: https://dts.podtrac.com/redirect.mp3/episodes.loomstate.fm/retro/retro3.mp3
 EnclosureLength: 29393945
 EnclosureSize: 29.4
 Explicit: "no"

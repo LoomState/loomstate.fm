@@ -7,7 +7,7 @@ Date: 2016-05-23 18:20:00 +1100
 
 Guid: 879f6de3-28d7-46d5-9031-a8f7aa326c54
 Duration: 44:56
-EnclosureUrl: https://episodes.loomstate.fm/nan/nan4.mp3
+EnclosureUrl: https://dts.podtrac.com/redirect.mp3/episodes.loomstate.fm/nan/nan4.mp3
 EnclosureLength: 27786759
 EnclosureSize: 27.8
 Explicit: no
